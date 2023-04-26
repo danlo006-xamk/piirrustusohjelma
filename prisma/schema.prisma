@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model canvas {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+}
+
+model shapedata {
+  id          Int      @id @default(autoincrement())
+  canvasId    Int
+  username    String
+  createdAt   DateTime @default(now())
+  type        String
+  fillColor   String
+  strokeColor String
+  opacity     Float
+  width       Int
+  x1          Int
+  y1          Int
+  x2          Int
+  y2          Int
+}
